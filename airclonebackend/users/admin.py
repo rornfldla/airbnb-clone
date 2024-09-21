@@ -31,4 +31,4 @@ class CustonUserAdmin(UserAdmin) :
         ),
     )
 
-    list_display = ("username", "email", "name", "is_host",)
+    list_display = ("username", "email", "name", "is_host")
