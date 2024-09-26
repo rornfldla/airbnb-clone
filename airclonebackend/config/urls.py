@@ -23,4 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('rooms/', include("rooms.urls")),
     path('tweets/', include("Tweets.urls")),
+    path("categories/", include("categories.urls")),
+    path("api/v1/tweets/", include("Tweets.urls")),
+    path("api/v1/users/", include("users.urls")),
 ]
+
