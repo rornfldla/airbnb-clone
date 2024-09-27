@@ -2,19 +2,6 @@ from typing import Any
 from django.contrib import admin
 from django.db.models.query import QuerySet
 from .models import Tweet, Like
-
-class cfilter(admin.SimpleListFilter) :
-    title = "created filter"
-    
-    parameter_name = "created_filter"
-    
-    def lookups(self, request, model_admin) :
-        dates = Tweet.objects.dates('created_at', 'day')  # 'day' 단위로 날짜 목록을 반환
-        return [(date, date.strftime('%Y-%m-%d')) for date in dates]
-    
-    def queryset(self, request, queryset) :
-        if self.value() :
-            return queryset.filter(created_at__date=self.value())
     
 class wfilter(admin.SimpleListFilter) :
     title = "word filter"
@@ -42,7 +29,7 @@ class TweetAdmin(admin.ModelAdmin) :
     )
     
     list_filter = (
-        cfilter,
+       "created_at",
         wfilter,
     )
 
@@ -60,7 +47,7 @@ class LikeAdmin(admin.ModelAdmin) :
     )
     
     list_filter = (
-        cfilter,
+        "created_at",
     )
 
     search_fields = (
