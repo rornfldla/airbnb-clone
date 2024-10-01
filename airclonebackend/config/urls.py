@@ -21,9 +21,10 @@ from Tweets import views as tweet_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rooms/', include("rooms.urls")),
+    path('api/v1/rooms/', include("rooms.urls")),
     path("api/v1/categories/", include("categories.urls")),
     path("api/v1/tweets/", include("Tweets.urls")),
     path("api/v1/users/", include("users.urls")),
+    path("api/v1/experiences/", include("experiences.urls")),
 ]
 
